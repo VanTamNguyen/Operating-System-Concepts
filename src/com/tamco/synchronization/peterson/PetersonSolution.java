@@ -4,7 +4,6 @@ import com.tamco.synchronization.CriticalProcess;
 import com.tamco.synchronization.SharingResource;
 
 import java.util.function.Consumer;
-import java.util.function.Function;
 
 /**
  * Created by tam-co on 04/04/2017.

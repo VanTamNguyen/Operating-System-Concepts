@@ -7,6 +7,14 @@ import java.util.function.Consumer;
  */
 public class CriticalProcess extends Thread {
 
+	/*
+	*
+	* What do I mean by CriticalProcess? CriticalProcess is a process with a critical section inside.
+	* Critical section is a piece of code that accesses and modifies sharing data.
+	* My duty is to synchronize processes.
+	*
+	* */
+
 	SharingResource sharingResource;
 
 	Runnable entrySection;

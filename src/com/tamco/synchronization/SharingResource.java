@@ -7,7 +7,7 @@ public class SharingResource {
 
 	/*
 	*
-	* This class illustrate sharing value that is accessed and modified concurrently by many threads
+	* This class illustrate sharing resource that is accessed and modified concurrently by many threads
 	*
 	* */
 
