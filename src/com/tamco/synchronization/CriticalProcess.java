@@ -23,6 +23,13 @@ public class CriticalProcess extends Thread {
 
 	Consumer<SharingResource> criticalSection;
 
+	/*
+	* @sharingResource
+	* @entrySection: piece of code that acquire to enter the critical section
+	* @exitSection: piece of code that notify this process has done with critical section so
+	*               other process can enter its critical section
+	* @criticalSection: a piece of code that accesses and modifies sharing resource
+	* */
 	public CriticalProcess(SharingResource sharingResource, Runnable entrySection, Runnable exitSection, Consumer<SharingResource> criticalSection) {
 		this.sharingResource = sharingResource;
 		this.entrySection = entrySection;
