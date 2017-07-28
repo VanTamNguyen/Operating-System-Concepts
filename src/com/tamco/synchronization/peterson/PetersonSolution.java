@@ -25,7 +25,6 @@ public class PetersonSolution {
 			turn = decreaseTurn;
 
 			while (decreaseFlag && turn == decreaseTurn) {;}
-			System.out.println("INCREASE process ENTER critical section");
 		};
 
 		Runnable decreaseEntrySection = () -> {
@@ -33,16 +32,13 @@ public class PetersonSolution {
 			turn = increaseTurn;
 
 			while (increaseFlag && turn == increaseTurn) {;}
-			System.out.println("DECREASE process ENTER critical section");
 		};
 
 		Runnable increaseExitSection = () -> {
-			System.out.println("INCREASE process EXIT  critical section\n-------------------");
 			increaseFlag = false;
 		};
 
 		Runnable decreaseExitSection = () -> {
-			System.out.println("DECREASE process EXIT  critical section\n-------------------");
 			decreaseFlag = false;
 		};
 
@@ -54,5 +50,14 @@ public class PetersonSolution {
 
 		increaseProcess.start();
 		decreaseProcess.start();
+
+		try {
+			increaseProcess.join();
+			decreaseProcess.join();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+
+		System.out.println("Sharing resource value after 2 processes finish: " + resource.getValue());
 	}
 }

@@ -42,33 +42,17 @@ public class CriticalProcess extends Thread {
 		int count = 0;
 
 		do {
-			try {
-				Thread.sleep(1000);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-
 			// Entry section
 			entrySection.run();
 
-
 			// Critical section
 			criticalSection.accept(sharingResource);
-
 
 			// Exit section
 			exitSection.run();
 
 			// Remaining section
 			count++;
-		} while (count < 5);
-
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-		// By printing this statement I expect that the value of sharing resource will be the same value when resource was initialized
-		System.out.println("Process has finished: " + sharingResource.getValue());
+		} while (count < 1000);
 	}
 }
